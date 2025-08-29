@@ -272,8 +272,9 @@ async function connectToWebsocket() {
         model: CONFIG.API.MODEL_NAME,
         generationConfig: {
             responseModalities: responseTypeSelect.value,
+			
             speechConfig: {
-                languageCode: languageSelect.value,
+                languageCode: languageSelect?.value || localStorage.getItem('language_code') || 'zh-CN',
                 voiceConfig: { 
                     prebuiltVoiceConfig: { 
                         voiceName: voiceSelect.value    // You can change voice in the config.js file
